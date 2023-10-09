@@ -1,0 +1,29 @@
+<div>
+    <h2>List of Invoices</h2>
+    <ul>
+        <li *ngFor="let invoice of list">
+          Facture {{ invoice.idFacture }}
+          <a href="javascript:void(0);" (click)="showDetails(invoice)">details</a>
+        </li>
+      </ul>
+   
+      <div>
+        <h2>List of Invoices</h2>
+        <ul>
+          <li *ngFor="let invoice of list">
+            Facture {{ invoice.idFacture }}
+            <a [routerLink]="['/invoice', invoice.idFacture, invoice.active]">Details</a>
+          </li>
+        </ul>
+      </div>
+   
+    <div *ngIf="selectedInvoice">
+      <h3>Invoice Details</h3>
+      <p>ID: {{ selectedInvoice.idFacture }}</p>
+      <p>Montant Facture: {{ selectedInvoice.montantFacture }}</p>
+      <p>Montant Remise: {{ selectedInvoice.montantRemise }}</p>
+      <p>Date Facture: {{ selectedInvoice.dateFacture }}</p>
+      <p>Active: {{ selectedInvoice.active }}</p>
+    </div>
+  </div>
+  
